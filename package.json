@@ -11,16 +11,20 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~4.0.1",
+    "@expo/vector-icons": "^14.0.2",
     "@react-native/metro-config": "^0.79.0",
     "axios": "^1.8.4",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
     "expo": "~52.0.43",
     "expo-status-bar": "~2.0.1",
+    "express": "^5.1.0",
+    "mongoose": "^8.13.2",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-native": "0.76.9",
     "react-native-vector-icons": "^10.2.0",
-    "react-native-web": "~0.19.13",
-    "@expo/vector-icons": "^14.0.2"
+    "react-native-web": "~0.19.13"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -29,5 +33,16 @@
     "@types/react-native": "^0.72.8",
     "typescript": "^5.3.3"
   },
-  "private": true
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shreyashi0904/Duroply.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/Shreyashi0904/Duroply/issues"
+  },
+  "homepage": "https://github.com/Shreyashi0904/Duroply#readme",
+  "description": ""
 }

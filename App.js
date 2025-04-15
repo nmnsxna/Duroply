@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import {
   View,
@@ -8,6 +9,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import MenuScreen from './screens/MenuScreen';
 
 export default function App() {
   const [email, setEmail] = useState('');
@@ -16,8 +18,20 @@ export default function App() {
   const [secureText, setSecureText] = useState(true); // 👁️ Password visibility
 
   const handleLogin = async () => {
+    // Convert email to lowercase
+    const emailLower = email.toLowerCase();
+
+// Basic email validation regex
+const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+ 
+if (!emailRegex.test(emailLower)) {
+  setMessage('Please enter a valid email address');
+  return;
+}
+//http://191.191.5.136:5000/api/login
+
     try {
-      const response = await axios.post('http://191.191.5.136:3000/api/login', {
+      const response = await axios.post('http://192.168.1.7:5000/api/auth/login', {
         email,
         password
       });
@@ -26,7 +40,11 @@ export default function App() {
       setMessage(error.response?.data?.message || 'Login failed');
     }
   };
-
+  
+if (data.message === 'Login successful!') {
+    navigation.navigate('Menu');
+  }
+  
   return (
     <View style={styles.container}>
       <TextInput
