@@ -19,7 +19,7 @@ const LoginScreen = ({ navigation }) => {
 
       const data = await response.json();
 
-      if (data.message === 'Login successful!') {
+      if (data.message === 'Login successful') {
         navigation.navigate('Menu');
       } else {
         navigation.navigate('LoginFailed', { message: data.message });
