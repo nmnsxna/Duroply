@@ -8,6 +8,12 @@ const LoginScreen = ({ navigation }) => {
   const [secureText, setSecureText] = useState(true);
 
   const handleLogin = async () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address');
+      return;
+    }
     try {
       const response = await fetch('http://192.168.1.7:5000/api/auth/login', {
         method: 'POST',
