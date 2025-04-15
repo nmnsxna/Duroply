@@ -36,7 +36,7 @@ const LoginScreen = ({ navigation }) => {
       if (data.message === 'Login successful!') {
           navigation.navigate('Menu');
         }
-      } else {
+      }  else {
         navigation.navigate('LoginFailed', { message: data.message });
       }
     } catch (error) {
