@@ -20,18 +20,22 @@ const LoginScreen = ({ navigation }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://192.168.1.7:5000/api/auth/login', 
+      const response = await fetch('http://192.168.1.7:5000/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
-      );
+        });
 
       const data = await response.json();
-      
-      if (data.message === 'Login successful') {
-        navigation.navigate('Menu');
+
+      // if (response.ok) {
+      //   navigation.navigate('Home', { user: data.user });
+
+      if (data.message === 'Login successful!') {
+          navigation.navigate('Menu');
+        }
       } else {
         navigation.navigate('LoginFailed', { message: data.message });
       }
